@@ -15,7 +15,9 @@ export default {
       // como é usado o Vue.use no router
       // eu posso fazer isso com $router
       // sem importar
-      this.$router.push({ path: "/" });
+      // this.$router.push({ path: "/" });
+      // this.$router.push("/");
+      this.$router.push({ name: "inicio" });
     }
   }
 };

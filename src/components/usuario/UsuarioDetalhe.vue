@@ -10,12 +10,17 @@
     serão aplicado na tag gerada 
     Para que o link seja dinamico, foi usado 
     aspas duplas primeiro, depois crase pra deixar dinamico
-    as duas formas abaixo são validas
+    as duas formas abaixo são validas,
+    para passar query params, usar o atributo query no objeto
+    passado para o to
     -->
     <!-- <router-link primario tag="button" :to="`/usuario/${route.params.id}/editar`"> -->
-    <router-link primario tag="button" :to="`/usuario/${id}/editar`">
-      Editar
-    </router-link>
+    <router-link
+      primario
+      tag="button"
+      :to="{ name: 'usuarioEditar', params: { id }, query: { lingua: 'pt' } }"
+      >Editar</router-link
+    >
   </div>
 </template>
 <script>

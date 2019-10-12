@@ -6,6 +6,13 @@
       <strong>Código</strong>
       {{ id }}
     </p>
+    <p>
+      <!-- Para capturar um query param, usar
+      o objeto $route, acessando query
+      e depois o nome do parametro -->
+      <strong>Lingua</strong>
+      {{ $route.query.lingua }}
+    </p>
   </div>
 </template>
 <script>

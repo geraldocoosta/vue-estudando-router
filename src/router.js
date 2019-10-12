@@ -18,17 +18,20 @@ export default new Router({
   routes: [
     {
       path: "/",
-      component: Inicio
+      component: Inicio,
+      nome: "inicio"
     },
     {
       path: "/usuario",
       component: Usuario,
       // parametros da rota serão passados via props
       props: true,
+      name: "usuario",
       children: [
         {
           path: "",
-          component: UsuarioLista
+          component: UsuarioLista,
+          name: "usuarioLista"
         },
         {
           // se os children conterem uma barra antes do nome
@@ -41,12 +44,14 @@ export default new Router({
           // usado o caminho sem barra no começo
           path: ":id",
           component: UsuarioDetalhe,
-          props: true
+          props: true,
+          name: "usuarioDetalhes"
         },
         {
           path: ":id/editar",
           component: UsuarioEditar,
-          props: true
+          props: true,
+          name: "usuarioEditar"
         }
       ]
     }
