@@ -2,32 +2,13 @@
   <div class="usuario">
     <h2>Usuario</h2>
     <hr />
-    <p>
-      <strong>Código</strong>
-      {{ id }}
-    </p>
+    <!-- Aqui serão aplicadas as rotas aninhadas -->
+    <router-view />
     <button sucesso @click="irParaInicio">Voltar</button>
   </div>
 </template>
 <script>
 export default {
-  props: ["id"],
-  // data() {
-  //   // forma de pegar param da url
-  //   return {
-  //     id: this.$route.params.id
-  //   };
-  // },
-  // watch: {
-  //   //para usar o watch no route, podemos receber
-  //   // dois parametros, sendo o to e o from
-  //   // estratégia usada para mudar o valor do
-  //   // data.id quando navegar entre o mesmo componente
-  //   // com parametros diferentes
-  //   $route(to) {
-  //     this.id = to.params.id;
-  //   }
-  // },
   methods: {
     irParaInicio() {
       // navegando de forma programatica
