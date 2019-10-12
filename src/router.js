@@ -1,6 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Inicio from "@/components/Inicio";
+import Menu from "@/components/template/Menu";
+import Alt from "@/components/template/Alt";
 
 import Usuario from "@/components/usuario/Usuario";
 import UsuarioLista from "@/components/usuario/UsuarioLista";
@@ -18,12 +20,23 @@ export default new Router({
   routes: [
     {
       path: "/",
-      component: Inicio,
-      nome: "inicio"
+      nome: "inicio",
+      // carregando componentes diferentes com router-view
+      // nomeados, se eu tiver
+      components: {
+        menu: Menu,
+        default: Inicio
+      }
+      // component: Inicio,
     },
     {
       path: "/usuario",
-      component: Usuario,
+      // component: Usuario,
+      components: {
+        menu: Alt,
+        default: Usuario,
+        menuInferior: Alt,
+      },
       // parametros da rota serão passados via props
       props: true,
       name: "usuario",
