@@ -14,11 +14,13 @@ export default new Router({
   routes: [
     {
       path: "/",
-      component: Inicio,
+      component: Inicio
     },
     {
-      path: "/usuario",
-      component: Usuario
+      path: "/usuario/:id",
+      component: Usuario,
+      // parametros da rota serão passados via props
+      props: true
     }
   ]
 });
