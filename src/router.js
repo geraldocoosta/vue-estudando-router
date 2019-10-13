@@ -17,10 +17,21 @@ Vue.use(Router);
 
 export default new Router({
   mode: "history",
+  scrollBehavior(to, _, savedPosition) {
+    // essa função serve para quando queremos
+    // fazer uma navegação via # para levar a
+    // alguma parte especifica de uma página
+    if (savedPosition) {
+      return savedPosition;
+    }
+    if (to.hash) {
+      return { selector: to.hash };
+    }
+  },
   routes: [
     {
       path: "/",
-      nome: "inicio",
+      name: "inicio",
       // carregando componentes diferentes com router-view
       // nomeados, se eu tiver
       components: {

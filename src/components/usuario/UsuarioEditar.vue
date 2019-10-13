@@ -13,6 +13,9 @@
       <strong>Lingua</strong>
       {{ $route.query.lingua }}
     </p>
+    <div id="rodape">
+      Curso de Vue
+    </div>
   </div>
 </template>
 <script>
@@ -20,3 +23,8 @@ export default {
   props: ["id"]
 };
 </script>
+<style>
+#rodape {
+  margin-top: 800px;
+}
+</style>
