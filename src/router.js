@@ -35,7 +35,7 @@ export default new Router({
       components: {
         menu: Alt,
         default: Usuario,
-        menuInferior: Alt,
+        menuInferior: Alt
       },
       // parametros da rota serão passados via props
       props: true,
@@ -67,6 +67,19 @@ export default new Router({
           name: "usuarioEditar"
         }
       ]
+    },
+    {
+      /* usando redirect */
+      path: "/redirect",
+      redirect: "/usuario"
+    },
+    {
+      /* usando redirect também
+      porém, esse irá ser pra qualquer
+      url não suportada
+      */
+      path: "*",
+      redirect: "/"
     }
   ]
 });

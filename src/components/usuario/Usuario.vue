@@ -1,6 +1,6 @@
 <template>
   <div class="usuario">
-    <h2>Usuario</h2>
+    <h2 class="teste">Usuario</h2>
     <hr />
     <!-- Aqui serão aplicadas as rotas aninhadas -->
     <router-view />
@@ -22,3 +22,9 @@ export default {
   }
 };
 </script>
+<style scoped>
+/* testando build de produção, já faz o extract */
+.teste {
+  margin-right: 0;
+}
+</style>
