@@ -15,7 +15,7 @@ import UsuarioEditar from "@/components/usuario/UsuarioEditar";
 */
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   mode: "history",
   scrollBehavior(to, _, savedPosition) {
     // essa função serve para quando queremos
@@ -69,7 +69,13 @@ export default new Router({
           path: ":id",
           component: UsuarioDetalhe,
           props: true,
-          name: "usuarioDetalhes"
+          name: "usuarioDetalhes",
+          beforeEnter(to, from, next) {
+            console.log("to -> ", to);
+            console.log("from -> ", from);
+            console.log("antes da rota -> usuario detalhe");
+            next();
+          }
         },
         {
           path: ":id/editar",
@@ -87,10 +93,28 @@ export default new Router({
     {
       /* usando redirect também
       porém, esse irá ser pra qualquer
-      url não suportada
+      url não suportada (não cadastrada no routes)
       */
       path: "*",
       redirect: "/"
     }
   ]
 });
+
+router.beforeEach((to, from, next) => {
+  console.log("antes das rotas -> global");
+  // podemos passar um objeto para o next
+  // se passarmos false, ele aborta a navegação
+  // se chamar apenas o next, ele navega normalmente
+  // posso passar o path direto
+  // o to e o from tem o atributo path, que mostra o path
+  // definido no router acima
+  //
+  // if (to.path !== '/usuario')
+  //   next('/usuario');
+  // else
+  //   next()
+  next();
+});
+
+export default router;

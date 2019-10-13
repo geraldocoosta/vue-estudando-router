@@ -30,7 +30,12 @@
 </template>
 <script>
 export default {
-  props: ["id"]
+  props: ["id"],
+  beforeRouteEnter(to, from, next) {
+    // componente não foi nem criado, isso quer dizer que é mt bom
+    console.log("dentro do componente -> usuarioDetalhe");
+    next();
+  }
   // data() {
   //   // forma de pegar param da url
   //   return {

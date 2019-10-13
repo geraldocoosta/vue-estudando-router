@@ -9,13 +9,12 @@
     <p>
       <!-- Para capturar um query param, usar
       o objeto $route, acessando query
-      e depois o nome do parametro -->
+      e depois o nome do parametro-->
       <strong>Lingua</strong>
       {{ $route.query.lingua }}
     </p>
-    <div id="rodape">
-      Curso de Vue
-    </div>
+    <button primario>Confirmar</button>
+    <div id="rodape">Curso de Vue</div>
   </div>
 </template>
 <script>
