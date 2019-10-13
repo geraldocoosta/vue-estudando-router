@@ -4,16 +4,36 @@ import Inicio from "@/components/Inicio";
 import Menu from "@/components/template/Menu";
 import Alt from "@/components/template/Alt";
 
-import Usuario from "@/components/usuario/Usuario";
-import UsuarioLista from "@/components/usuario/UsuarioLista";
-import UsuarioDetalhe from "@/components/usuario/UsuarioDetalhe";
-import UsuarioEditar from "@/components/usuario/UsuarioEditar";
+// import Usuario from "@/components/usuario/Usuario";
+// import UsuarioLista from "@/components/usuario/UsuarioLista";
+// import UsuarioDetalhe from "@/components/usuario/UsuarioDetalhe";
+// import UsuarioEditar from "@/components/usuario/UsuarioEditar";
 
 /*
   Posso acessar a rota a partir de this.$router
   a rota a partir de this.$route
 */
 Vue.use(Router);
+
+/*
+  Para usar o lazyload com vários componentes, 
+  deve ser usado o comentario abaixo
+  nos componentes que serão juntados em um bundle (chunk)
+  eu não boto fé até agora, mas tudo bem
+*/
+
+const Usuario = () =>
+  import(/* webpackChunkName: "usuario" */ "@/components/usuario/Usuario");
+const UsuarioLista = () =>
+  import(/* webpackChunkName: "usuario" */ "@/components/usuario/UsuarioLista");
+const UsuarioDetalhe = () =>
+  import(
+    /* webpackChunkName: "usuario" */ "@/components/usuario/UsuarioDetalhe"
+  );
+const UsuarioEditar = () =>
+  import(
+    /* webpackChunkName: "usuario" */ "@/components/usuario/UsuarioEditar"
+  );
 
 const router = new Router({
   mode: "history",
